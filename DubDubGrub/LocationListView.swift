@@ -13,7 +13,7 @@ struct LocationListView: View {
             List {
                 ForEach(0..<10) { i in
                     NavigationLink {
-                        Text("Test location \(i)")
+                        LocationDetailView()
                     } label: {
                         HStack {
                             Image("default-square-asset")
@@ -34,25 +34,25 @@ struct LocationListView: View {
                                     switch i {
                                     case 0:
                                         ForEach(0..<4) { _ in
-                                            AvatarView()
+                                            AvatarView(size: 35)
                                         }
                                     case 1:
                                         ForEach(0..<5) { _ in
-                                            AvatarView()
+                                            AvatarView(size: 35)
                                         }
                                     case 2:
                                         ForEach(0..<1) { _ in
-                                            AvatarView()
+                                            AvatarView(size: 35)
                                         }
                                     case 3:
                                         ForEach(0..<2) { _ in
-                                            AvatarView()
+                                            AvatarView(size: 35)
                                         }
                                     case 4:
                                         Text("Nobody Checked In")
                                             .foregroundColor(.secondary)
                                     default:
-                                        AvatarView()
+                                        AvatarView(size: 35)
                                     }
                                 }
                             }
@@ -73,11 +73,14 @@ struct LocationListView_Previews: PreviewProvider {
 }
 
 struct AvatarView: View {
+    
+    var size: CGFloat
+    
     var body: some View {
         Image("default-avatar")
             .resizable()
             .scaledToFit()
-            .frame(width: 35, height: 35)
+            .frame(width: size, height: size)
             .clipShape(Circle())
     }
 }

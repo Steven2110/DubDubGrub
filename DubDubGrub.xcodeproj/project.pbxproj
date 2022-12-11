@@ -16,6 +16,7 @@
 		B007888B29390CF300654BF9 /* LocationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B007888A29390CF300654BF9 /* LocationListView.swift */; };
 		B007888D29390D0300654BF9 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B007888C29390D0300654BF9 /* ProfileView.swift */; };
 		B0078890293911FD00654BF9 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B007888F293911FD00654BF9 /* .gitignore */; };
+		B00788942939F47700654BF9 /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00788932939F47600654BF9 /* LocationDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		B007888C29390D0300654BF9 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		B007888E2939107900654BF9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B007888F293911FD00654BF9 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		B00788932939F47600654BF9 /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				B007888429390C2600654BF9 /* ColorExtension.swift */,
 				B007888629390C9600654BF9 /* DDGTabView.swift */,
 				B007888A29390CF300654BF9 /* LocationListView.swift */,
+				B00788932939F47600654BF9 /* LocationDetailView.swift */,
 				B007888829390CCD00654BF9 /* LocationMapView.swift */,
 				B007888C29390D0300654BF9 /* ProfileView.swift */,
 				B0078879293909F500654BF9 /* Assets.xcassets */,
@@ -160,6 +163,7 @@
 				B007888529390C2600654BF9 /* ColorExtension.swift in Sources */,
 				B007888929390CCD00654BF9 /* LocationMapView.swift in Sources */,
 				B007888B29390CF300654BF9 /* LocationListView.swift in Sources */,
+				B00788942939F47700654BF9 /* LocationDetailView.swift in Sources */,
 				B007888729390C9600654BF9 /* DDGTabView.swift in Sources */,
 				B007888D29390D0300654BF9 /* ProfileView.swift in Sources */,
 				B0078876293909F400654BF9 /* DubDubGrubApp.swift in Sources */,
