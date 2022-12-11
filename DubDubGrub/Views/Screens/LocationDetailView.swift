@@ -17,10 +17,7 @@ struct LocationDetailView: View {
     
     var body: some View {
         VStack {
-            Image("default-banner-asset")
-                .resizable()
-                .scaledToFill()
-                .frame(height: 120)
+            bannerImage
             HStack {
                 Label("1 S Market St Ste 40", systemImage: "mappin.and.ellipse")
                     .foregroundColor(.secondary)
@@ -29,16 +26,9 @@ struct LocationDetailView: View {
             }
             .padding(.leading)
             .padding(.top, 3)
-            Text("It's Chipotle. Enough said. It's Chipotle. Enough said. It's Chipotle. Enough said. It's Chipotle. Enough said. It's Chipotle. Enough said.")
-                .lineLimit(3)
-                .minimumScaleFactor(0.75)
-                .frame(height: 70)
-                .padding(.horizontal)
+            description
             ZStack {
-                Capsule()
-                    .frame(height: 80)
-                    .foregroundColor(Color(.secondarySystemBackground))
-                    .padding(.horizontal)
+                capsuleBackground
                 HStack(spacing: 25) {
                     Button {
                         
@@ -64,6 +54,7 @@ struct LocationDetailView: View {
             Text("Who's Here?")
                 .fontWeight(.bold)
                 .font(.title3)
+                .padding()
             ScrollView {
                 LazyVGrid(columns: columns) {
                     AvatarFirstNameView(firstName: "John")
@@ -73,7 +64,6 @@ struct LocationDetailView: View {
                 }
             }
             Spacer()
-            
         }
         .navigationTitle("Chipotle")
         .navigationBarTitleDisplayMode(.inline)
@@ -85,6 +75,30 @@ struct LocationDetailView_Previews: PreviewProvider {
         NavigationView {
             LocationDetailView()
         }
+    }
+}
+
+extension LocationDetailView {
+    private var bannerImage: some View {
+        Image("default-banner-asset")
+            .resizable()
+            .scaledToFill()
+            .frame(height: 120)
+    }
+    
+    private var description: some View {
+        Text("It's Chipotle. Enough said. It's Chipotle. Enough said. It's Chipotle. Enough said. It's Chipotle. Enough said. It's Chipotle. Enough said.")
+            .lineLimit(3)
+            .minimumScaleFactor(0.75)
+            .frame(height: 70)
+            .padding(.horizontal)
+    }
+    
+    private var capsuleBackground: some View {
+        Capsule()
+            .frame(height: 80)
+            .foregroundColor(Color(.secondarySystemBackground))
+            .padding(.horizontal)
     }
 }
 

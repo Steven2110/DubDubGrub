@@ -18,7 +18,9 @@ struct DDGTabView: View {
                 .tabItem {
                     Label("Locations", systemImage: "building.2")
                 }
-            ProfileView()
+            NavigationView {
+                ProfileView()
+            }
                 .tabItem {
                     Label("Profile", systemImage: "person")
                 }
