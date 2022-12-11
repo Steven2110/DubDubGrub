@@ -16,63 +16,63 @@ struct LocationDetailView: View {
     ]
     
     var body: some View {
-        ScrollView {
-            VStack {
-                Image("default-banner-asset")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(height: 120)
-                HStack {
-                    Label("1 S Market St Ste 40", systemImage: "mappin.and.ellipse")
-                        .foregroundColor(.secondary)
-                        .font(.caption)
-                    Spacer()
-                }
-                .padding(.leading)
-                .padding(.top, 3)
-                Text("It's Chipotle. Enough said.")
-                    .fontWeight(.semibold)
-                    .lineLimit(3)
-                    .minimumScaleFactor(0.75)
-                    .padding(50)
-                ZStack {
-                    Capsule()
-                        .frame(height: 80)
-                        .foregroundColor(Color(.secondarySystemBackground))
-                        .padding(.horizontal)
-                    HStack(spacing: 25) {
-                        Button {
-                            
-                        } label: {
-                            LocationButtonLabel(color: Color.brandPrimary, imageName: "location.fill")
-                        }
-                        Link(destination: URL(string: "http://apple.com")!, label: {
-                            LocationButtonLabel(color: Color.brandPrimary, imageName: "globe")
-                        })
-                        Button {
-                            
-                        } label: {
-                            LocationButtonLabel(color: Color.brandPrimary, imageName: "phone.fill")
-                        }
-                        Button {
-                            
-                        } label: {
-                            LocationButtonLabel(color: Color.brandPrimary, imageName: "person.fill.checkmark")
-                        }
+        VStack {
+            Image("default-banner-asset")
+                .resizable()
+                .scaledToFill()
+                .frame(height: 120)
+            HStack {
+                Label("1 S Market St Ste 40", systemImage: "mappin.and.ellipse")
+                    .foregroundColor(.secondary)
+                    .font(.caption)
+                Spacer()
+            }
+            .padding(.leading)
+            .padding(.top, 3)
+            Text("It's Chipotle. Enough said. It's Chipotle. Enough said. It's Chipotle. Enough said. It's Chipotle. Enough said. It's Chipotle. Enough said.")
+                .lineLimit(3)
+                .minimumScaleFactor(0.75)
+                .frame(height: 70)
+                .padding(.horizontal)
+            ZStack {
+                Capsule()
+                    .frame(height: 80)
+                    .foregroundColor(Color(.secondarySystemBackground))
+                    .padding(.horizontal)
+                HStack(spacing: 25) {
+                    Button {
+                        
+                    } label: {
+                        LocationButtonLabel(color: Color.brandPrimary, imageName: "location.fill")
                     }
-                    .font(.title3)
+                    Link(destination: URL(string: "http://apple.com")!, label: {
+                        LocationButtonLabel(color: Color.brandPrimary, imageName: "globe")
+                    })
+                    Button {
+                        
+                    } label: {
+                        LocationButtonLabel(color: Color.brandPrimary, imageName: "phone.fill")
+                    }
+                    Button {
+                        
+                    } label: {
+                        LocationButtonLabel(color: Color.brandPrimary, imageName: "person.fill.checkmark")
+                    }
                 }
-                Text("Who's Here?")
-                    .fontWeight(.bold)
-                    .font(.title3)
+                .font(.title3)
+            }
+            Text("Who's Here?")
+                .fontWeight(.bold)
+                .font(.title3)
+            ScrollView {
                 LazyVGrid(columns: columns) {
                     AvatarFirstNameView(firstName: "John")
                     AvatarFirstNameView(firstName: "John")
                     AvatarFirstNameView(firstName: "John")
                     AvatarFirstNameView(firstName: "John")
                 }
-                Spacer()
             }
+            Spacer()
             
         }
         .navigationTitle("Chipotle")
