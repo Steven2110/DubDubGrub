@@ -1,49 +1,13 @@
 //
-//  LocationListView.swift
+//  LocationRowView.swift
 //  DubDubGrub
 //
-//  Created by Steven Wijaya on 01.12.2022.
+//  Created by Steven Wijaya on 11.12.2022.
 //
 
 import SwiftUI
 
-struct LocationListView: View {
-    var body: some View {
-        NavigationView {
-            List {
-                ForEach(0..<10) { i in
-                    NavigationLink {
-                        LocationDetailView()
-                    } label: {
-                        LocationRow(i: i)
-                    }
-                }
-            }
-            .navigationTitle("Grub Spots")
-        }
-    }
-}
-
-struct LocationListView_Previews: PreviewProvider {
-    static var previews: some View {
-        LocationListView()
-    }
-}
-
-struct AvatarView: View {
-    
-    var size: CGFloat
-    
-    var body: some View {
-        Image("default-avatar")
-            .resizable()
-            .scaledToFit()
-            .frame(width: size, height: size)
-            .clipShape(Circle())
-    }
-}
-
-struct LocationRow: View {
+struct LocationRowView: View {
     var i : Int
     var body: some View {
         HStack {
@@ -89,5 +53,11 @@ struct LocationRow: View {
             }
             .padding(.leading)
         }
+    }
+}
+
+struct LocationRowView_Previews: PreviewProvider {
+    static var previews: some View {
+        LocationRowView(i: 1)
     }
 }
