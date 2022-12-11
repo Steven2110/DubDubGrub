@@ -107,6 +107,7 @@
 		B09AEB38294645390052210E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B09AEB31294642630052210E /* CustomModifiers.swift */,
 				B09AEB3A294645670052210E /* CustomViews */,
 				B09AEB39294645420052210E /* Screens */,
 			);
@@ -117,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				B09AEB3C294645AE0052210E /* Additonals */,
-				B09AEB3D294645D00052210E /* CustomViews */,
 				B007888629390C9600654BF9 /* DDGTabView.swift */,
 				B00788932939F47600654BF9 /* LocationDetailView.swift */,
 				B007888A29390CF300654BF9 /* LocationListView.swift */,
@@ -130,6 +130,8 @@
 		B09AEB3A294645670052210E /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				B09AEB35294643A00052210E /* DDGButton.swift */,
+				B09AEB3E294645FB0052210E /* AvatarView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -137,19 +139,9 @@
 		B09AEB3C294645AE0052210E /* Additonals */ = {
 			isa = PBXGroup;
 			children = (
-				B09AEB31294642630052210E /* CustomModifiers.swift */,
 				B09AEB2F29463EC10052210E /* LocationRowView.swift */,
 			);
 			path = Additonals;
-			sourceTree = "<group>";
-		};
-		B09AEB3D294645D00052210E /* CustomViews */ = {
-			isa = PBXGroup;
-			children = (
-				B09AEB35294643A00052210E /* DDGButton.swift */,
-				B09AEB3E294645FB0052210E /* AvatarView.swift */,
-			);
-			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
