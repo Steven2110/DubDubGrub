@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LocationDetailView: View {
     
+    var location: DDGLocation
     let columns: [GridItem] = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -19,7 +20,7 @@ struct LocationDetailView: View {
         VStack {
             bannerImage
             HStack {
-                Label("1 S Market St Ste 40", systemImage: "mappin.and.ellipse")
+                Label(location.address, systemImage: "mappin.and.ellipse")
                     .foregroundColor(.secondary)
                     .font(.caption)
                 Spacer()
@@ -35,7 +36,7 @@ struct LocationDetailView: View {
                     } label: {
                         LocationButtonLabel(color: Color.brandPrimary, imageName: "location.fill")
                     }
-                    Link(destination: URL(string: "http://apple.com")!, label: {
+                    Link(destination: URL(string: location.websiteURL)!, label: {
                         LocationButtonLabel(color: Color.brandPrimary, imageName: "globe")
                     })
                     Button {
@@ -65,7 +66,7 @@ struct LocationDetailView: View {
             }
             Spacer()
         }
-        .navigationTitle("Chipotle")
+        .navigationTitle(location.name)
         .navigationBarTitleDisplayMode(.inline)
     }
 }
@@ -73,7 +74,7 @@ struct LocationDetailView: View {
 struct LocationDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            LocationDetailView()
+            LocationDetailView(location: DDGLocation(record: MockData.location))
         }
     }
 }
@@ -87,7 +88,7 @@ extension LocationDetailView {
     }
     
     private var description: some View {
-        Text("It's Chipotle. Enough said. It's Chipotle. Enough said. It's Chipotle. Enough said. It's Chipotle. Enough said. It's Chipotle. Enough said.")
+        Text(location.description)
             .lineLimit(3)
             .minimumScaleFactor(0.75)
             .frame(height: 70)

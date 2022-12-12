@@ -10,3 +10,4 @@ This project is taken from Sean Allen courses [DubDubGrub](https://seanallen.tea
 6. Add ProfileView (11.12.2022) ✅
 7. First refactor and project organization (12.12.2022) ✅
 8. Add DDGLocation Model (12.12.2022) ✅
+9. Add DDGProfile Model and Update UI with mock data (12.12.2022) ✅
