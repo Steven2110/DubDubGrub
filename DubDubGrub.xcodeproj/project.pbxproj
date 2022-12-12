@@ -22,6 +22,7 @@
 		B09AEB34294642800052210E /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09AEB33294642800052210E /* ViewExtension.swift */; };
 		B09AEB36294643A00052210E /* DDGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09AEB35294643A00052210E /* DDGButton.swift */; };
 		B09AEB3F294645FB0052210E /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09AEB3E294645FB0052210E /* AvatarView.swift */; };
+		B09AEB42294717FF0052210E /* DDGLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09AEB41294717FF0052210E /* DDGLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		B09AEB33294642800052210E /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		B09AEB35294643A00052210E /* DDGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGButton.swift; sourceTree = "<group>"; };
 		B09AEB3E294645FB0052210E /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		B09AEB41294717FF0052210E /* DDGLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				B007888329390A5C00654BF9 /* DubDubGrub.entitlements */,
 				B09AEB372946452B0052210E /* Extensions */,
+				B09AEB40294717E80052210E /* Models */,
 				B09AEB38294645390052210E /* Views */,
 				B0078875293909F400654BF9 /* DubDubGrubApp.swift */,
 				B0078879293909F500654BF9 /* Assets.xcassets */,
@@ -142,6 +145,14 @@
 				B09AEB2F29463EC10052210E /* LocationRowView.swift */,
 			);
 			path = Additonals;
+			sourceTree = "<group>";
+		};
+		B09AEB40294717E80052210E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B09AEB41294717FF0052210E /* DDGLocation.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +231,7 @@
 				B09AEB36294643A00052210E /* DDGButton.swift in Sources */,
 				B007888929390CCD00654BF9 /* LocationMapView.swift in Sources */,
 				B007888B29390CF300654BF9 /* LocationListView.swift in Sources */,
+				B09AEB42294717FF0052210E /* DDGLocation.swift in Sources */,
 				B00788942939F47700654BF9 /* LocationDetailView.swift in Sources */,
 				B09AEB34294642800052210E /* ViewExtension.swift in Sources */,
 				B09AEB3029463EC10052210E /* LocationRowView.swift in Sources */,

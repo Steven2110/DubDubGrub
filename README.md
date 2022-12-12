@@ -9,3 +9,4 @@ This project is taken from Sean Allen courses [DubDubGrub](https://seanallen.tea
 5. Final LocationDetailView (11.12.2022) ✅
 6. Add ProfileView (11.12.2022) ✅
 7. First refactor and project organization (12.12.2022) ✅
+8. Add DDGLocation Model (12.12.2022) ✅
