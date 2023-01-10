@@ -17,6 +17,9 @@
 		B007888D29390D0300654BF9 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B007888C29390D0300654BF9 /* ProfileView.swift */; };
 		B0078890293911FD00654BF9 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B007888F293911FD00654BF9 /* .gitignore */; };
 		B00788942939F47700654BF9 /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00788932939F47600654BF9 /* LocationDetailView.swift */; };
+		B036CD5E296DB100001A0184 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036CD5D296DB100001A0184 /* CloudKitManager.swift */; };
+		B036CD60296DB1EC001A0184 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036CD5F296DB1EC001A0184 /* Constants.swift */; };
+		B036CD62296DB591001A0184 /* CKRecordExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036CD61296DB591001A0184 /* CKRecordExtension.swift */; };
 		B09AEB3029463EC10052210E /* LocationRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09AEB2F29463EC10052210E /* LocationRowView.swift */; };
 		B09AEB32294642630052210E /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09AEB31294642630052210E /* CustomModifiers.swift */; };
 		B09AEB34294642800052210E /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09AEB33294642800052210E /* ViewExtension.swift */; };
@@ -41,6 +44,9 @@
 		B007888E2939107900654BF9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B007888F293911FD00654BF9 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B00788932939F47600654BF9 /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
+		B036CD5D296DB100001A0184 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
+		B036CD5F296DB1EC001A0184 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B036CD61296DB591001A0184 /* CKRecordExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKRecordExtension.swift; sourceTree = "<group>"; };
 		B09AEB2F29463EC10052210E /* LocationRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRowView.swift; sourceTree = "<group>"; };
 		B09AEB31294642630052210E /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
 		B09AEB33294642800052210E /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
@@ -84,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				B007888329390A5C00654BF9 /* DubDubGrub.entitlements */,
+				B036CD5B296DB0AD001A0184 /* Utilities */,
 				B09AEB372946452B0052210E /* Extensions */,
 				B09AEB40294717E80052210E /* Models */,
 				B09AEB38294645390052210E /* Views */,
@@ -100,6 +107,24 @@
 				B007887C293909F500654BF9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B036CD5B296DB0AD001A0184 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B036CD5C296DB0B6001A0184 /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		B036CD5C296DB0B6001A0184 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B036CD5D296DB100001A0184 /* CloudKitManager.swift */,
+				B036CD5F296DB1EC001A0184 /* Constants.swift */,
+				B036CD61296DB591001A0184 /* CKRecordExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		B09AEB372946452B0052210E /* Extensions */ = {
@@ -232,7 +257,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B036CD62296DB591001A0184 /* CKRecordExtension.swift in Sources */,
 				B007888529390C2600654BF9 /* ColorExtension.swift in Sources */,
+				B036CD60296DB1EC001A0184 /* Constants.swift in Sources */,
 				B09AEB3F294645FB0052210E /* AvatarView.swift in Sources */,
 				B09AEB36294643A00052210E /* DDGButton.swift in Sources */,
 				B007888929390CCD00654BF9 /* LocationMapView.swift in Sources */,
@@ -242,6 +269,7 @@
 				B09AEB42294717FF0052210E /* DDGLocation.swift in Sources */,
 				B00788942939F47700654BF9 /* LocationDetailView.swift in Sources */,
 				B09AEB34294642800052210E /* ViewExtension.swift in Sources */,
+				B036CD5E296DB100001A0184 /* CloudKitManager.swift in Sources */,
 				B09AEB3029463EC10052210E /* LocationRowView.swift in Sources */,
 				B007888729390C9600654BF9 /* DDGTabView.swift in Sources */,
 				B09AEB32294642630052210E /* CustomModifiers.swift in Sources */,
