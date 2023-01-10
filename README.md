@@ -13,3 +13,4 @@ This project is taken from Sean Allen courses [DubDubGrub](https://seanallen.tea
 9. Add DDGProfile Model and Update UI with mock data (12.12.2022) ✅
 10. Add CloudKitManager to do network call (10.01.2023) ✅
 11. Setup Alert (10.01.2023) ✅
+12. Setup MVVM (10.01.2023) ✅
