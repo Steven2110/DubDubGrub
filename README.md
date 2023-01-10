@@ -11,3 +11,4 @@ This project is taken from Sean Allen courses [DubDubGrub](https://seanallen.tea
 7. First refactor and project organization (12.12.2022) ✅
 8. Add DDGLocation Model (12.12.2022) ✅
 9. Add DDGProfile Model and Update UI with mock data (12.12.2022) ✅
+10. Add CloudKitManager to do network call (10.01.2023) ✅
