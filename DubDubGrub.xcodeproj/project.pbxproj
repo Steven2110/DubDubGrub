@@ -98,7 +98,6 @@
 				B007888329390A5C00654BF9 /* DubDubGrub.entitlements */,
 				B0078875293909F400654BF9 /* DubDubGrubApp.swift */,
 				B036CD5B296DB0AD001A0184 /* Utilities */,
-				B09AEB372946452B0052210E /* Extensions */,
 				B09AEB40294717E80052210E /* Models */,
 				B036CD65296DBC9B001A0184 /* ViewModel */,
 				B09AEB38294645390052210E /* Views */,
@@ -120,19 +119,11 @@
 			isa = PBXGroup;
 			children = (
 				B058F5FF296E5D7A0092A311 /* Managers */,
-				B036CD5C296DB0B6001A0184 /* Extensions */,
+				B09AEB372946452B0052210E /* Extensions */,
 				B036CD63296DB8C2001A0184 /* AlertItem.swift */,
 				B036CD5F296DB1EC001A0184 /* Constants.swift */,
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		B036CD5C296DB0B6001A0184 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				B036CD61296DB591001A0184 /* CKRecordExtension.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		B036CD65296DBC9B001A0184 /* ViewModel */ = {
@@ -156,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				B007888429390C2600654BF9 /* ColorExtension.swift */,
+				B036CD61296DB591001A0184 /* CKRecordExtension.swift */,
 				B09AEB33294642800052210E /* ViewExtension.swift */,
 			);
 			path = Extensions;
