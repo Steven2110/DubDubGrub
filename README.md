@@ -14,3 +14,4 @@ This project is taken from Sean Allen courses [DubDubGrub](https://seanallen.tea
 10. Add CloudKitManager to do network call (10.01.2023) ✅
 11. Setup Alert (10.01.2023) ✅
 12. Setup MVVM (10.01.2023) ✅
+13. Add `@EnvironmentObject` and Map Pins or Map Markers (11.01.2023) ✅ 

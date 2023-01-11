@@ -8,8 +8,8 @@
 import Foundation
 import CloudKit
 
-struct DDGLocation {
-    let ckRecordID: CKRecord.ID
+struct DDGLocation: Identifiable {
+    let id: CKRecord.ID
     
     let name: String
     let description: String
@@ -31,7 +31,7 @@ struct DDGLocation {
     static let cBannerAsset = "bannerAsset"
     
     init(record: CKRecord) {
-        ckRecordID = record.recordID
+        id = record.recordID
         name = record[DDGLocation.cName] as? String ?? "N/A"
         description = record[DDGLocation.cDescription] as? String ?? "N/A"
         address = record[DDGLocation.cAddress] as? String ?? "N/A"
