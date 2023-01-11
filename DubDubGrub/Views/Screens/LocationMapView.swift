@@ -54,5 +54,6 @@ struct LogoView: View {
 struct LocationMapView_Previews: PreviewProvider {
     static var previews: some View {
         LocationMapView()
+            .environmentObject(LocationManager())
     }
 }

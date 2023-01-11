@@ -7,6 +7,7 @@
 
 import Foundation
 import CloudKit
+import UIKit
 
 struct DDGLocation: Identifiable {
     let id: CKRecord.ID
@@ -41,5 +42,15 @@ struct DDGLocation: Identifiable {
         
         squareAsset = record[DDGLocation.cSquareAsset] as? CKAsset
         bannerAsset = record[DDGLocation.cBannerAsset] as? CKAsset
+    }
+    
+    func createSquareImage() -> UIImage {
+        guard let asset = squareAsset else { return ImagePlaceHolder.square }
+        return asset.convertToUIImage(in: .square)
+    }
+    
+    func createBannerImage() -> UIImage {
+        guard let asset = bannerAsset else { return ImagePlaceHolder.banner }
+        return asset.convertToUIImage(in: .banner)
     }
 }

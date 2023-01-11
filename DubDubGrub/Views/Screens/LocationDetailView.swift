@@ -81,7 +81,7 @@ struct LocationDetailView_Previews: PreviewProvider {
 
 extension LocationDetailView {
     private var bannerImage: some View {
-        Image("default-banner-asset")
+        Image(uiImage: location.createBannerImage())
             .resizable()
             .scaledToFill()
             .frame(height: 120)
