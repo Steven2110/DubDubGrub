@@ -118,6 +118,9 @@
 			isa = PBXGroup;
 			children = (
 				B036CD5C296DB0B6001A0184 /* Extensions */,
+				B036CD5D296DB100001A0184 /* CloudKitManager.swift */,
+				B036CD63296DB8C2001A0184 /* AlertItem.swift */,
+				B036CD5F296DB1EC001A0184 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -125,10 +128,7 @@
 		B036CD5C296DB0B6001A0184 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				B036CD63296DB8C2001A0184 /* AlertItem.swift */,
 				B036CD61296DB591001A0184 /* CKRecordExtension.swift */,
-				B036CD5D296DB100001A0184 /* CloudKitManager.swift */,
-				B036CD5F296DB1EC001A0184 /* Constants.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
