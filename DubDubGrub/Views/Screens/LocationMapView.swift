@@ -26,6 +26,8 @@ struct LocationMapView: View {
             Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
         })
         .onAppear {
+            viewModel.checkIfLocationServiceIsEnabled()
+            
             if locationManager.locations.isEmpty {
                 viewModel.getLocations(for: locationManager)
             }
@@ -35,10 +37,18 @@ struct LocationMapView: View {
 
 extension LocationMapView {
     private var mapView: some View {
-        Map(coordinateRegion: $viewModel.region, annotationItems: locationManager.locations, annotationContent: { location in
-            MapMarker(coordinate: location.location.coordinate, tint: .brandPrimary)
-        })
-            .ignoresSafeArea()
+        Map(
+            coordinateRegion: $viewModel.region,
+            showsUserLocation: true,
+            annotationItems: locationManager.locations
+        ) { location in
+            MapMarker(
+                coordinate: location.location.coordinate,
+                tint: .brandPrimary
+            )
+        }
+        .accentColor(.grubRed)
+        .ignoresSafeArea()
     }
 }
 
