@@ -17,7 +17,7 @@ struct LocationMapView: View {
         ZStack {
             mapView
             VStack {
-                LogoView()
+                LogoView(frameWidth: 125)
                     .shadow(radius: 10)
                 Spacer()
             }
@@ -49,15 +49,6 @@ extension LocationMapView {
         }
         .accentColor(.grubRed)
         .ignoresSafeArea()
-    }
-}
-
-struct LogoView: View {
-    var body: some View {
-        Image("ddg-map-logo")
-            .resizable()
-            .scaledToFit()
-            .frame(height: 75)
     }
 }
 
