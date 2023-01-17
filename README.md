@@ -20,3 +20,4 @@ This project is taken from Sean Allen courses [DubDubGrub](https://seanallen.tea
 16. Add Onboard screen UI and refactor the `LogoView` (17.01.2023) ✅
 17. Add persistence handler for onboarding sheet view (17.01.2023) ✅
 18. Setup photo picker for `ProfileView` (17.01.2023) ✅
+19. Add simple profile form validation (17.01.2023) ✅

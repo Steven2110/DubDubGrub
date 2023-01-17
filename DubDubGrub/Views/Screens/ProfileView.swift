@@ -17,6 +17,8 @@ struct ProfileView: View {
     
     @State private var isShowingPhotoPicker: Bool = false
     
+    @State private var alertItem: AlertItem?
+    
     var body: some View {
         VStack {
             ZStack {
@@ -50,13 +52,24 @@ struct ProfileView: View {
             .padding(.horizontal)
             Spacer()
             Button {
-                
+                dismissKeyboard()
+                createProfile()
             } label: {
                 DDGButton(title: "Save Profile")
                     .padding()
             }
         }
         .navigationTitle("Profile")
+        .toolbar {
+            Button {
+                dismissKeyboard()
+            } label: {
+                Image(systemName: "keyboard.chevron.compact.down")
+            }
+        }
+        .alert(item: $alertItem, content: { alertItem in
+            Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
+        })
         .sheet(isPresented: $isShowingPhotoPicker) {
             PhotoPicker(image: $avatar)
         }
@@ -133,6 +146,25 @@ extension ProfileView {
                     .stroke(Color.secondary, lineWidth: 2)
             )
         
+    }
+    
+    func checkProfileValidity() -> Bool {
+        guard !firstName.isEmpty,
+              !lastName.isEmpty,
+              !position.isEmpty,
+              !bioText.isEmpty,
+              avatar != ImagePlaceHolder.avatar,
+              bioText.count < 100
+        else { return false }
+        
+        return true
+    }
+    
+    func createProfile() {
+        guard checkProfileValidity() else {
+            alertItem = AlertContext.invalidProfile
+            return
+        }
     }
 }
 
