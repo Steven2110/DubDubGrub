@@ -24,6 +24,7 @@
 		B036CD68296DBCF9001A0184 /* LocationMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036CD67296DBCF9001A0184 /* LocationMapViewModel.swift */; };
 		B058F601296E5DCE0092A311 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058F600296E5DCE0092A311 /* LocationManager.swift */; };
 		B058F603296E69D30092A311 /* CKAssetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B058F602296E69D30092A311 /* CKAssetExtension.swift */; };
+		B06DEC0629767440001BF880 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06DEC0529767440001BF880 /* PhotoPicker.swift */; };
 		B09AEB3029463EC10052210E /* LocationRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09AEB2F29463EC10052210E /* LocationRowView.swift */; };
 		B09AEB32294642630052210E /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09AEB31294642630052210E /* CustomModifiers.swift */; };
 		B09AEB34294642800052210E /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09AEB33294642800052210E /* ViewExtension.swift */; };
@@ -57,6 +58,7 @@
 		B036CD67296DBCF9001A0184 /* LocationMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapViewModel.swift; sourceTree = "<group>"; };
 		B058F600296E5DCE0092A311 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		B058F602296E69D30092A311 /* CKAssetExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKAssetExtension.swift; sourceTree = "<group>"; };
+		B06DEC0529767440001BF880 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		B09AEB2F29463EC10052210E /* LocationRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRowView.swift; sourceTree = "<group>"; };
 		B09AEB31294642630052210E /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
 		B09AEB33294642800052210E /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
@@ -149,6 +151,14 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		B06DEC042976742A001BF880 /* UIKit Components */ = {
+			isa = PBXGroup;
+			children = (
+				B06DEC0529767440001BF880 /* PhotoPicker.swift */,
+			);
+			path = "UIKit Components";
+			sourceTree = "<group>";
+		};
 		B09AEB372946452B0052210E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +198,7 @@
 		B09AEB3A294645670052210E /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				B06DEC042976742A001BF880 /* UIKit Components */,
 				B09AEB35294643A00052210E /* DDGButton.swift */,
 				B09AEB3E294645FB0052210E /* AvatarView.swift */,
 			);
@@ -322,6 +333,7 @@
 				B09AEB32294642630052210E /* CustomModifiers.swift in Sources */,
 				B007888D29390D0300654BF9 /* ProfileView.swift in Sources */,
 				B0E33BA52975A2720023CA2A /* OnboardView.swift in Sources */,
+				B06DEC0629767440001BF880 /* PhotoPicker.swift in Sources */,
 				B0078876293909F400654BF9 /* DubDubGrubApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

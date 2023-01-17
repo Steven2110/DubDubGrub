@@ -19,3 +19,4 @@ This project is taken from Sean Allen courses [DubDubGrub](https://seanallen.tea
 15. Show user's location, ask for user's location, handle all alert (16.01.2023) ✅
 16. Add Onboard screen UI and refactor the `LogoView` (17.01.2023) ✅
 17. Add persistence handler for onboarding sheet view (17.01.2023) ✅
+18. Setup photo picker for `ProfileView` (17.01.2023) ✅

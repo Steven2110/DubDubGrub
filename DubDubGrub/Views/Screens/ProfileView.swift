@@ -13,6 +13,9 @@ struct ProfileView: View {
     @State private var lastName: String = ""
     @State private var position: String = ""
     @State private var bioText: String = ""
+    @State private var avatar = ImagePlaceHolder.avatar
+    
+    @State private var isShowingPhotoPicker: Bool = false
     
     var body: some View {
         VStack {
@@ -54,6 +57,9 @@ struct ProfileView: View {
             }
         }
         .navigationTitle("Profile")
+        .sheet(isPresented: $isShowingPhotoPicker) {
+            PhotoPicker(image: $avatar)
+        }
     }
 }
 
@@ -80,13 +86,16 @@ extension ProfileView {
     
     private var profileImage: some View {
         ZStack {
-            AvatarView(size: 90)
+            AvatarView(image: avatar, size: 90)
             Image(systemName: "square.and.pencil")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 14, height: 14)
                 .foregroundColor(.white)
                 .offset(y: 33)
+        }
+        .onTapGesture {
+            isShowingPhotoPicker = true
         }
     }
     
