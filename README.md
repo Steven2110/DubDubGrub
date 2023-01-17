@@ -18,3 +18,4 @@ This project is taken from Sean Allen courses [DubDubGrub](https://seanallen.tea
 14. Pass Locations to `LocationListView` and `LocationDetailView`, Handle CKAsset to show banner and icon (11.01.2023) ✅ 
 15. Show user's location, ask for user's location, handle all alert (16.01.2023) ✅
 16. Add Onboard screen UI and refactor the `LogoView` (17.01.2023) ✅
+17. Add persistence handler for onboarding sheet view (17.01.2023) ✅

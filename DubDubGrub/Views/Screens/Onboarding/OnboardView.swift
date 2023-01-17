@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct OnboardView: View {
+    
+    @Binding var isShowingOnboardView: Bool
+    
     var body: some View {
         VStack {
             HStack {
                 Spacer()
                 Button {
-                    
+                    isShowingOnboardView = false
                 } label: {
                     ZStack {
                         Circle()
@@ -25,6 +28,7 @@ struct OnboardView: View {
                             .frame(width: 44, height: 44)
                     }
                 }
+                .padding()
             }
             Spacer()
             LogoView(frameWidth: 250)
@@ -66,6 +70,6 @@ struct OnboardViewInfoView: View {
 
 struct OnboardView_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardView()
+        OnboardView(isShowingOnboardView: .constant(true))
     }
 }
