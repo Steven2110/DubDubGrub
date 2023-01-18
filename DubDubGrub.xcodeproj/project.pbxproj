@@ -33,6 +33,7 @@
 		B09AEB42294717FF0052210E /* DDGLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09AEB41294717FF0052210E /* DDGLocation.swift */; };
 		B09AEB4429471E470052210E /* DDGProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09AEB4329471E470052210E /* DDGProfile.swift */; };
 		B09AEB4629471FA50052210E /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09AEB4529471FA50052210E /* MockData.swift */; };
+		B0BD84F32978653600923F75 /* UIIMageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BD84F22978653600923F75 /* UIIMageExtension.swift */; };
 		B0E33BA52975A2720023CA2A /* OnboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E33BA42975A2720023CA2A /* OnboardView.swift */; };
 		B0E33BA82975A2FF0023CA2A /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E33BA72975A2FF0023CA2A /* LogoView.swift */; };
 /* End PBXBuildFile section */
@@ -67,6 +68,7 @@
 		B09AEB41294717FF0052210E /* DDGLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGLocation.swift; sourceTree = "<group>"; };
 		B09AEB4329471E470052210E /* DDGProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGProfile.swift; sourceTree = "<group>"; };
 		B09AEB4529471FA50052210E /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		B0BD84F22978653600923F75 /* UIIMageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIIMageExtension.swift; sourceTree = "<group>"; };
 		B0E33BA42975A2720023CA2A /* OnboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardView.swift; sourceTree = "<group>"; };
 		B0E33BA72975A2FF0023CA2A /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				B007888429390C2600654BF9 /* ColorExtension.swift */,
+				B0BD84F22978653600923F75 /* UIIMageExtension.swift */,
 				B058F602296E69D30092A311 /* CKAssetExtension.swift */,
 				B036CD61296DB591001A0184 /* CKRecordExtension.swift */,
 				B09AEB33294642800052210E /* ViewExtension.swift */,
@@ -333,6 +336,7 @@
 				B09AEB32294642630052210E /* CustomModifiers.swift in Sources */,
 				B007888D29390D0300654BF9 /* ProfileView.swift in Sources */,
 				B0E33BA52975A2720023CA2A /* OnboardView.swift in Sources */,
+				B0BD84F32978653600923F75 /* UIIMageExtension.swift in Sources */,
 				B06DEC0629767440001BF880 /* PhotoPicker.swift in Sources */,
 				B0078876293909F400654BF9 /* DubDubGrubApp.swift in Sources */,
 			);
