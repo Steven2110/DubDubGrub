@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CloudKit
 
 struct ProfileView: View {
     
@@ -164,6 +165,48 @@ extension ProfileView {
         guard checkProfileValidity() else {
             alertItem = AlertContext.invalidProfile
             return
+        }
+        
+        // Create CKRecord from profile form
+        let profileRecord = CKRecord(recordType: RecordType.profile)
+        profileRecord[DDGProfile.cFirstName] = firstName
+        profileRecord[DDGProfile.cLastName] = lastName
+        profileRecord[DDGProfile.cPosition] = position
+        profileRecord[DDGProfile.cBio] = bioText
+        profileRecord[DDGProfile.cAvatar] = avatar.convertToCKAsset()
+        
+        // Get UserRecordID from container
+        CKContainer.default().fetchUserRecordID { recordID, error in
+            guard let recordID = recordID, error == nil else {
+                print(error!.localizedDescription)
+                return
+            }
+            print("This is record ID from container: \(recordID)")
+            
+            // Get UserRecord from public database
+            CKContainer.default().publicCloudDatabase.fetch(withRecordID: recordID) { userRecord, error in
+                guard let userRecord = userRecord, error == nil else {
+                    print(error!.localizedDescription)
+                    return
+                }
+                print("This is user record from database: \(userRecord)")
+                
+                // Create reference on UserRecord to the DDGProfile
+                userRecord["userProfile"] = CKRecord.Reference(recordID: profileRecord.recordID, action: .none)
+                
+                // Create CKOperation to save User and Profile Records
+                let operation = CKModifyRecordsOperation(recordsToSave: [userRecord, profileRecord])
+                operation.modifyRecordsCompletionBlock = { savedRecords, deletedRecordsID, error in
+                    guard let savedRecords = savedRecords, error == nil else {
+                        print(error!.localizedDescription)
+                        return
+                    }
+                    
+                    print(savedRecords)
+                }
+                
+                CKContainer.default().publicCloudDatabase.add(operation) // Same as `task.resume()`
+            }
         }
     }
 }
