@@ -26,3 +26,4 @@ This project is taken from Sean Allen courses [DubDubGrub](https://seanallen.tea
 22. Retrieve DDGProfile record from CloudKit DB (25.01.2023) ✅
 23. Refactor `ProfileView` using ViewModel (06.02.2023) ✅
 24. Refactor `CloudKitManager` using Singleton pattern (06.02.2023) ✅
+25. Add `LoadingView` for `ProfileView` and handle all alerts (06.02.2023) ✅

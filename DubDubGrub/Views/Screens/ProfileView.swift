@@ -13,44 +13,48 @@ struct ProfileView: View {
     @StateObject private var viewModel: ProfileViewModel = ProfileViewModel()
     
     var body: some View {
-        VStack {
-            ZStack {
-                profileDataBackground
-                HStack {
-                    profileImage
-                    VStack {
-                        profileFirstName
-                            .profileNameStyle()
-                        profileLastName
-                            .profileNameStyle()
-                        profilePosition
+        ZStack {
+            VStack {
+                ZStack {
+                    profileDataBackground
+                    HStack {
+                        profileImage
+                        VStack {
+                            profileFirstName
+                                .profileNameStyle()
+                            profileLastName
+                                .profileNameStyle()
+                            profilePosition
+                        }
+                        Spacer()
                     }
-                    Spacer()
+                    .padding()
                 }
                 .padding()
-            }
-            .padding()
-            VStack {
-                HStack {
-                    bioCharactersRemain
-                    Spacer()
-                    Button {
-                        
-                    } label: {
-                        checkOutButtonLabel
+                VStack {
+                    HStack {
+                        bioCharactersRemain
+                        Spacer()
+                        Button {
+                            
+                        } label: {
+                            checkOutButtonLabel
+                        }
                     }
+                    bioTextBox
                 }
-                bioTextBox
+                .padding(.horizontal)
+                Spacer()
+                Button {
+                    dismissKeyboard()
+                    viewModel.createProfile()
+                } label: {
+                    DDGButton(title: "Save Profile")
+                        .padding()
+                }
             }
-            .padding(.horizontal)
-            Spacer()
-            Button {
-                dismissKeyboard()
-                viewModel.createProfile()
-            } label: {
-                DDGButton(title: "Save Profile")
-                    .padding()
-            }
+            
+            if viewModel.isLoading { LoadingView() }
         }
         .navigationTitle("Profile")
         .toolbar {
