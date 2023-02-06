@@ -25,6 +25,7 @@ struct DDGTabView: View {
                     Label("Profile", systemImage: "person")
                 }
         }
+        .onAppear { CloudKitManager.shared.getUserRecord() }
         .accentColor(.brandPrimary)
     }
 }

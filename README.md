@@ -25,3 +25,4 @@ This project is taken from Sean Allen courses [DubDubGrub](https://seanallen.tea
 21. Finsih create and send profile record to CloudKit DB (23.01.2023) ✅
 22. Retrieve DDGProfile record from CloudKit DB (25.01.2023) ✅
 23. Refactor `ProfileView` using ViewModel (06.02.20232) ✅
+24. Refactor `CloudKitManager` using Singleton pattern (06.02.2023) ✅

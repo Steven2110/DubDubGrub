@@ -41,6 +41,27 @@ final class ProfileViewModel: ObservableObject {
         // Create CKRecord from profile form
         let profileRecord = createProfileRecord()
         
+        // Refactor network call using Singleton class CloudKitManager
+        guard let userRecord = CloudKitManager.shared.userRecord else {
+            // show an alert
+            return
+        }
+        
+        // Create reference on UserRecord to the DDGProfile
+        userRecord["userProfile"] = CKRecord.Reference(recordID: profileRecord.recordID, action: .none)
+        
+        CloudKitManager.shared.batchSave(records: [userRecord, profileRecord]) { result in
+            switch result {
+            case .success(_):
+                // show alert
+                break
+            case .failure(_):
+                // show alert
+                break
+            }
+        }
+        
+        /*
         // Get UserRecordID from container
         CKContainer.default().fetchUserRecordID { recordID, error in
             guard let recordID = recordID, error == nil else {
@@ -74,10 +95,41 @@ final class ProfileViewModel: ObservableObject {
                 CKContainer.default().publicCloudDatabase.add(operation) // Same as `task.resume()`
             }
         }
+         */
     }
     
     func getProfile() {
-        CKContainer.default().fetchUserRecordID { recordID, error in
+        
+        guard let userRecord = CloudKitManager.shared.userRecord else {
+            // show an alert
+            return
+        }
+        
+        guard let profileReference = userRecord["userProfile"] as? CKRecord.Reference else {
+            return
+        }
+        
+        let profilRecordID = profileReference.recordID
+        
+        CloudKitManager.shared.fetchRecord(with: profilRecordID) { result in
+            DispatchQueue.main.async { [self] in
+                switch result {
+                case .success(let record):
+                    let profile = DDGProfile(record: record)
+                    firstName = profile.firstName
+                    lastName = profile.lastName
+                    position = profile.position
+                    bioText = profile.bio
+                    avatar = profile.createAvatarImage()
+                case .failure(_):
+                    // show alert
+                    break
+                }
+            }
+        }
+        
+        /*
+         CKContainer.default().fetchUserRecordID { recordID, error in
             guard let recordID = recordID, error == nil else {
                 print(error!.localizedDescription)
                 return
@@ -111,6 +163,7 @@ final class ProfileViewModel: ObservableObject {
                 }
             }
         }
+        */
     }
     
     private func createProfileRecord() -> CKRecord {
