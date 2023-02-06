@@ -5,7 +5,7 @@
 //  Created by Steven Wijaya on 12.12.2022.
 //
 
-import Foundation
+import UIKit
 import CloudKit
 
 struct DDGProfile {
@@ -33,6 +33,13 @@ struct DDGProfile {
         position = record[DDGProfile.cPosition] as? String ?? "N/A"
         bio = record[DDGProfile.cBio] as? String ?? "N/A"
         avatar = record[DDGProfile.cAvatar] as? CKAsset
+    }
+    
+    func createAvatarImage() -> UIImage {
+        guard let avatar = avatar else {
+            return ImagePlaceHolder.avatar
+        }
+        return avatar.convertToUIImage(in: .square)
     }
 }
 

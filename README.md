@@ -23,3 +23,4 @@ This project is taken from Sean Allen courses [DubDubGrub](https://seanallen.tea
 19. Add simple profile form validation (17.01.2023) ✅
 20. Setup for UIImage to CKAsset conversion (19.01.2023) ✅ 
 21. Finsih create and send profile record to CloudKit DB (23.01.2023) ✅
+22. Retrieve DDGProfile record from CloudKit DB (25.01.2023) ✅
