@@ -24,3 +24,4 @@ This project is taken from Sean Allen courses [DubDubGrub](https://seanallen.tea
 20. Setup for UIImage to CKAsset conversion (19.01.2023) ✅ 
 21. Finsih create and send profile record to CloudKit DB (23.01.2023) ✅
 22. Retrieve DDGProfile record from CloudKit DB (25.01.2023) ✅
+23. Refactor `ProfileView` using ViewModel (06.02.20232) ✅
