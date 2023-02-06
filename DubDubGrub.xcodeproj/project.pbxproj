@@ -189,7 +189,6 @@
 		B09AEB39294645420052210E /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				B0E33BA62975A2F70023CA2A /* CustomViews */,
 				B0E33BA32975A2630023CA2A /* Onboarding */,
 				B09AEB3C294645AE0052210E /* Additonals */,
 				B007888629390C9600654BF9 /* DDGTabView.swift */,
@@ -207,6 +206,7 @@
 				B06DEC042976742A001BF880 /* UIKit Components */,
 				B09AEB35294643A00052210E /* DDGButton.swift */,
 				B09AEB3E294645FB0052210E /* AvatarView.swift */,
+				B0E33BA72975A2FF0023CA2A /* LogoView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -235,14 +235,6 @@
 				B0E33BA42975A2720023CA2A /* OnboardView.swift */,
 			);
 			path = Onboarding;
-			sourceTree = "<group>";
-		};
-		B0E33BA62975A2F70023CA2A /* CustomViews */ = {
-			isa = PBXGroup;
-			children = (
-				B0E33BA72975A2FF0023CA2A /* LogoView.swift */,
-			);
-			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
