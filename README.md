@@ -28,3 +28,4 @@ This project is taken from Sean Allen courses [DubDubGrub](https://seanallen.tea
 24. Refactor `CloudKitManager` using Singleton pattern (06.02.2023) ✅
 25. Add `LoadingView` for `ProfileView` and handle all alerts (06.02.2023) ✅
 26. Add update profile functionality (07.02.2023) ✅
+27. Add call and location link in `LocationDetailView` (07.02.2023) ✅

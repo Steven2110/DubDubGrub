@@ -35,6 +35,7 @@
 		B09AEB4629471FA50052210E /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09AEB4529471FA50052210E /* MockData.swift */; };
 		B0AF57CC2990E22800F78D20 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AF57CB2990E22800F78D20 /* ProfileViewModel.swift */; };
 		B0AF57CE29911C6D00F78D20 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AF57CD29911C6D00F78D20 /* LoadingView.swift */; };
+		B0AF57D02991EB7100F78D20 /* LocationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AF57CF2991EB7100F78D20 /* LocationDetailViewModel.swift */; };
 		B0BD84F32978653600923F75 /* UIIMageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BD84F22978653600923F75 /* UIIMageExtension.swift */; };
 		B0E33BA52975A2720023CA2A /* OnboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E33BA42975A2720023CA2A /* OnboardView.swift */; };
 		B0E33BA82975A2FF0023CA2A /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E33BA72975A2FF0023CA2A /* LogoView.swift */; };
@@ -72,6 +73,7 @@
 		B09AEB4529471FA50052210E /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		B0AF57CB2990E22800F78D20 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		B0AF57CD29911C6D00F78D20 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		B0AF57CF2991EB7100F78D20 /* LocationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewModel.swift; sourceTree = "<group>"; };
 		B0BD84F22978653600923F75 /* UIIMageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIIMageExtension.swift; sourceTree = "<group>"; };
 		B0E33BA42975A2720023CA2A /* OnboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardView.swift; sourceTree = "<group>"; };
 		B0E33BA72975A2FF0023CA2A /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			children = (
 				B036CD67296DBCF9001A0184 /* LocationMapViewModel.swift */,
 				B0AF57CB2990E22800F78D20 /* ProfileViewModel.swift */,
+				B0AF57CF2991EB7100F78D20 /* LocationDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				B0BD84F32978653600923F75 /* UIIMageExtension.swift in Sources */,
 				B06DEC0629767440001BF880 /* PhotoPicker.swift in Sources */,
 				B0078876293909F400654BF9 /* DubDubGrubApp.swift in Sources */,
+				B0AF57D02991EB7100F78D20 /* LocationDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

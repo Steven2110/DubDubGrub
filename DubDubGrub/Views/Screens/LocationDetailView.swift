@@ -9,18 +9,13 @@ import SwiftUI
 
 struct LocationDetailView: View {
     
-    var location: DDGLocation
-    let columns: [GridItem] = [
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
+    @ObservedObject var viewModel: LocationDetailViewModel
     
     var body: some View {
         VStack {
             bannerImage
             HStack {
-                Label(location.address, systemImage: "mappin.and.ellipse")
+                Label(viewModel.location.address, systemImage: "mappin.and.ellipse")
                     .foregroundColor(.secondary)
                     .font(.caption)
                 Spacer()
@@ -32,15 +27,15 @@ struct LocationDetailView: View {
                 capsuleBackground
                 HStack(spacing: 25) {
                     Button {
-                        
+                        viewModel.getDirections()
                     } label: {
                         LocationButtonLabel(color: Color.brandPrimary, imageName: "location.fill")
                     }
-                    Link(destination: URL(string: location.websiteURL)!, label: {
+                    Link(destination: URL(string: viewModel.location.websiteURL)!, label: {
                         LocationButtonLabel(color: Color.brandPrimary, imageName: "globe")
                     })
                     Button {
-                        
+                        viewModel.callLocation()
                     } label: {
                         LocationButtonLabel(color: Color.brandPrimary, imageName: "phone.fill")
                     }
@@ -57,7 +52,7 @@ struct LocationDetailView: View {
                 .font(.title3)
                 .padding()
             ScrollView {
-                LazyVGrid(columns: columns) {
+                LazyVGrid(columns: viewModel.columns) {
                     AvatarFirstNameView(firstName: "John")
                     AvatarFirstNameView(firstName: "John")
                     AvatarFirstNameView(firstName: "John")
@@ -66,29 +61,32 @@ struct LocationDetailView: View {
             }
             Spacer()
         }
-        .navigationTitle(location.name)
+        .navigationTitle(viewModel.location.name)
         .navigationBarTitleDisplayMode(.inline)
+        .alert(item: $viewModel.alertItem, content: { alertItem in
+            Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
+        })
     }
 }
 
 struct LocationDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            LocationDetailView(location: DDGLocation(record: MockData.location))
+            LocationDetailView(viewModel: LocationDetailViewModel(location: DDGLocation(record: MockData.location)))
         }
     }
 }
 
 extension LocationDetailView {
     private var bannerImage: some View {
-        Image(uiImage: location.createBannerImage())
+        Image(uiImage: viewModel.location.createBannerImage())
             .resizable()
             .scaledToFill()
             .frame(height: 120)
     }
     
     private var description: some View {
-        Text(location.description)
+        Text(viewModel.location.description)
             .lineLimit(3)
             .minimumScaleFactor(0.75)
             .frame(height: 70)
