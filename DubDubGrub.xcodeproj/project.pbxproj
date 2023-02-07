@@ -36,6 +36,8 @@
 		B0AF57CC2990E22800F78D20 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AF57CB2990E22800F78D20 /* ProfileViewModel.swift */; };
 		B0AF57CE29911C6D00F78D20 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AF57CD29911C6D00F78D20 /* LoadingView.swift */; };
 		B0AF57D02991EB7100F78D20 /* LocationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AF57CF2991EB7100F78D20 /* LocationDetailViewModel.swift */; };
+		B0AF57D229924E9900F78D20 /* ProfileModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AF57D129924E9900F78D20 /* ProfileModalView.swift */; };
+		B0AF57D4299252D700F78D20 /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AF57D3299252D700F78D20 /* DismissButton.swift */; };
 		B0BD84F32978653600923F75 /* UIIMageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BD84F22978653600923F75 /* UIIMageExtension.swift */; };
 		B0E33BA52975A2720023CA2A /* OnboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E33BA42975A2720023CA2A /* OnboardView.swift */; };
 		B0E33BA82975A2FF0023CA2A /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E33BA72975A2FF0023CA2A /* LogoView.swift */; };
@@ -74,6 +76,8 @@
 		B0AF57CB2990E22800F78D20 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		B0AF57CD29911C6D00F78D20 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		B0AF57CF2991EB7100F78D20 /* LocationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewModel.swift; sourceTree = "<group>"; };
+		B0AF57D129924E9900F78D20 /* ProfileModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModalView.swift; sourceTree = "<group>"; };
+		B0AF57D3299252D700F78D20 /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
 		B0BD84F22978653600923F75 /* UIIMageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIIMageExtension.swift; sourceTree = "<group>"; };
 		B0E33BA42975A2720023CA2A /* OnboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardView.swift; sourceTree = "<group>"; };
 		B0E33BA72975A2FF0023CA2A /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 				B00788932939F47600654BF9 /* LocationDetailView.swift */,
 				B007888A29390CF300654BF9 /* LocationListView.swift */,
 				B007888829390CCD00654BF9 /* LocationMapView.swift */,
+				B0AF57D129924E9900F78D20 /* ProfileModalView.swift */,
 				B007888C29390D0300654BF9 /* ProfileView.swift */,
 			);
 			path = Screens;
@@ -211,6 +216,7 @@
 				B06DEC042976742A001BF880 /* UIKit Components */,
 				B09AEB3E294645FB0052210E /* AvatarView.swift */,
 				B09AEB35294643A00052210E /* DDGButton.swift */,
+				B0AF57D3299252D700F78D20 /* DismissButton.swift */,
 				B0AF57CD29911C6D00F78D20 /* LoadingView.swift */,
 				B0E33BA72975A2FF0023CA2A /* LogoView.swift */,
 			);
@@ -338,10 +344,12 @@
 				B058F601296E5DCE0092A311 /* LocationManager.swift in Sources */,
 				B09AEB32294642630052210E /* CustomModifiers.swift in Sources */,
 				B007888D29390D0300654BF9 /* ProfileView.swift in Sources */,
+				B0AF57D4299252D700F78D20 /* DismissButton.swift in Sources */,
 				B0E33BA52975A2720023CA2A /* OnboardView.swift in Sources */,
 				B0BD84F32978653600923F75 /* UIIMageExtension.swift in Sources */,
 				B06DEC0629767440001BF880 /* PhotoPicker.swift in Sources */,
 				B0078876293909F400654BF9 /* DubDubGrubApp.swift in Sources */,
+				B0AF57D229924E9900F78D20 /* ProfileModalView.swift in Sources */,
 				B0AF57D02991EB7100F78D20 /* LocationDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

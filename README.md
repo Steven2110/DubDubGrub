@@ -29,3 +29,4 @@ This project is taken from Sean Allen courses [DubDubGrub](https://seanallen.tea
 25. Add `LoadingView` for `ProfileView` and handle all alerts (06.02.2023) ✅
 26. Add update profile functionality (07.02.2023) ✅
 27. Add call and location link in `LocationDetailView` (07.02.2023) ✅
+28. Add profile modal to show user's profile informations, and refactor x dismiss button into reusable view (07.02.2023) ✅
