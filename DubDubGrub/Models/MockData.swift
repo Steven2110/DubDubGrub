@@ -19,4 +19,14 @@ struct MockData {
         
         return record
     }
+    
+    static var profile: CKRecord {
+        let record = CKRecord(recordType: RecordType.profile)
+        record[DDGProfile.cFirstName] = "Steven"
+        record[DDGProfile.cLastName] = "Wijaya"
+        record[DDGProfile.cPosition] = "iOS Developer"
+        record[DDGProfile.cBio] = "This is my bio. I create an amazing app, that will blow up the world. WOW 🤩"
+        
+        return record
+    }
 }

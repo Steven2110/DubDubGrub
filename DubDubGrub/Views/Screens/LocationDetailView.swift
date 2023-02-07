@@ -12,54 +12,71 @@ struct LocationDetailView: View {
     @ObservedObject var viewModel: LocationDetailViewModel
     
     var body: some View {
-        VStack {
-            bannerImage
-            HStack {
-                Label(viewModel.location.address, systemImage: "mappin.and.ellipse")
-                    .foregroundColor(.secondary)
-                    .font(.caption)
+        ZStack {
+            VStack {
+                bannerImage
+                HStack {
+                    Label(viewModel.location.address, systemImage: "mappin.and.ellipse")
+                        .foregroundColor(.secondary)
+                        .font(.caption)
+                    Spacer()
+                }
+                .padding(.leading)
+                .padding(.top, 3)
+                description
+                ZStack {
+                    capsuleBackground
+                    HStack(spacing: 25) {
+                        Button {
+                            viewModel.getDirections()
+                        } label: {
+                            LocationButtonLabel(color: Color.brandPrimary, imageName: "location.fill")
+                        }
+                        Link(destination: URL(string: viewModel.location.websiteURL)!, label: {
+                            LocationButtonLabel(color: Color.brandPrimary, imageName: "globe")
+                        })
+                        Button {
+                            viewModel.callLocation()
+                        } label: {
+                            LocationButtonLabel(color: Color.brandPrimary, imageName: "phone.fill")
+                        }
+                        Button {
+                            
+                        } label: {
+                            LocationButtonLabel(color: Color.brandPrimary, imageName: "person.fill.checkmark")
+                        }
+                    }
+                    .font(.title3)
+                }
+                Text("Who's Here?")
+                    .fontWeight(.bold)
+                    .font(.title3)
+                    .padding()
+                ScrollView {
+                    LazyVGrid(columns: viewModel.columns) {
+                        AvatarFirstNameView(firstName: "John")
+                            .onTapGesture {
+                                viewModel.isShowingProfileModal = true
+                            }
+    //                    AvatarFirstNameView(firstName: "John")
+    //                    AvatarFirstNameView(firstName: "John")
+    //                    AvatarFirstNameView(firstName: "John")
+                    }
+                }
                 Spacer()
             }
-            .padding(.leading)
-            .padding(.top, 3)
-            description
-            ZStack {
-                capsuleBackground
-                HStack(spacing: 25) {
-                    Button {
-                        viewModel.getDirections()
-                    } label: {
-                        LocationButtonLabel(color: Color.brandPrimary, imageName: "location.fill")
-                    }
-                    Link(destination: URL(string: viewModel.location.websiteURL)!, label: {
-                        LocationButtonLabel(color: Color.brandPrimary, imageName: "globe")
-                    })
-                    Button {
-                        viewModel.callLocation()
-                    } label: {
-                        LocationButtonLabel(color: Color.brandPrimary, imageName: "phone.fill")
-                    }
-                    Button {
-                        
-                    } label: {
-                        LocationButtonLabel(color: Color.brandPrimary, imageName: "person.fill.checkmark")
-                    }
-                }
-                .font(.title3)
+            
+            if viewModel.isShowingProfileModal {
+                Color(.systemBackground)
+                    .ignoresSafeArea()
+                    .opacity(0.95)
+                    .transition(AnyTransition.opacity.animation(.easeOut(duration: 0.35)))
+                    .zIndex(1)
+                ProfileModalView(profile: DDGProfile(record: MockData.profile), isShowingProfileModalView: $viewModel.isShowingProfileModal)
+                    .transition(.opacity.combined(with: .slide))
+                    .animation(.easeOut)
+                    .zIndex(2)
             }
-            Text("Who's Here?")
-                .fontWeight(.bold)
-                .font(.title3)
-                .padding()
-            ScrollView {
-                LazyVGrid(columns: viewModel.columns) {
-                    AvatarFirstNameView(firstName: "John")
-                    AvatarFirstNameView(firstName: "John")
-                    AvatarFirstNameView(firstName: "John")
-                    AvatarFirstNameView(firstName: "John")
-                }
-            }
-            Spacer()
         }
         .navigationTitle(viewModel.location.name)
         .navigationBarTitleDisplayMode(.inline)

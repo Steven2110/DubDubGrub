@@ -20,6 +20,8 @@ final class LocationDetailViewModel: ObservableObject {
     
     @Published var alertItem: AlertItem?
     
+    @Published var isShowingProfileModal: Bool = false
+    
     init(location: DDGLocation) {
         self.location = location
     }
