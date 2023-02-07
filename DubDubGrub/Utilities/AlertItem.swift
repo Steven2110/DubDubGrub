@@ -71,4 +71,16 @@ struct AlertContext {
         message: Text("We were unable to create your profile at this time.Please check your internet connection and try again later."),
         dismissButton: .default(Text("Ok"))
     )
+    
+    static let updateProfileSuccess = AlertItem(
+        title: Text("Profile Updated Successfully!"),
+        message: Text("Your Dub Dub Grub profile was updated successfully."),
+        dismissButton: .default(Text("Nice!"))
+    )
+    
+    static let updateProfileFailure = AlertItem(
+        title: Text("Failed To Update Profile"),
+        message: Text("We were unable to update your profile at this time.Please check your internet connection and try again later."),
+        dismissButton: .default(Text("Ok"))
+    )
 }

@@ -7,6 +7,10 @@
 
 import CloudKit
 
+enum ProfileContext {
+    case create, update
+}
+
 final class ProfileViewModel: ObservableObject {
     
     
@@ -20,6 +24,12 @@ final class ProfileViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     
     @Published var alertItem: AlertItem?
+    
+    private var currentProfileRecord: CKRecord? {
+        didSet { profileContext = .update }
+    }
+    
+    var profileContext: ProfileContext = .create
     
     func checkProfileValidity() -> Bool {
         guard !firstName.isEmpty,
@@ -57,7 +67,10 @@ final class ProfileViewModel: ObservableObject {
                 hideLoadingView()
                 
                 switch result {
-                case .success(_):
+                case .success(let records):
+                    for record in records where record.recordType == RecordType.profile {
+                        currentProfileRecord = record
+                    }
                     alertItem = AlertContext.createProfileSuccess
                 case .failure(_):
                     alertItem = AlertContext.createProfileFailure
@@ -119,6 +132,8 @@ final class ProfileViewModel: ObservableObject {
                 hideLoadingView()
                 switch result {
                 case .success(let record):
+                    currentProfileRecord = record
+                    
                     let profile = DDGProfile(record: record)
                     firstName = profile.firstName
                     lastName = profile.lastName
@@ -168,6 +183,40 @@ final class ProfileViewModel: ObservableObject {
             }
         }
         */
+    }
+    
+    func updateProfile() {
+        // Make sure that profile form values are valid
+        guard checkProfileValidity() else {
+            alertItem = AlertContext.invalidProfile
+            return
+        }
+        
+        // Retrieve the existing profile record
+        guard let profileRecord = currentProfileRecord else {
+            alertItem = AlertContext.unableToGetProfile
+            return
+        }
+        
+        // Update the value (CloudKit will only update the changed values)
+        profileRecord[DDGProfile.cFirstName] = firstName
+        profileRecord[DDGProfile.cLastName] = lastName
+        profileRecord[DDGProfile.cPosition] = position
+        profileRecord[DDGProfile.cBio] = bioText
+        profileRecord[DDGProfile.cAvatar] = avatar.convertToCKAsset()
+        
+        showLoadingView()
+        CloudKitManager.shared.save(record: profileRecord) { result in
+            DispatchQueue.main.async { [self] in
+                hideLoadingView()
+                switch result {
+                case .success(_):
+                    alertItem = AlertContext.updateProfileSuccess
+                case .failure(_):
+                    alertItem = AlertContext.updateProfileFailure
+                }
+            }
+        }
     }
     
     private func createProfileRecord() -> CKRecord {
