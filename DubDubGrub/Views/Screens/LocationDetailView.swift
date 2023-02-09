@@ -40,10 +40,16 @@ struct LocationDetailView: View {
                         } label: {
                             LocationButtonLabel(color: Color.brandPrimary, imageName: "phone.fill")
                         }
-                        Button {
-                            viewModel.updateCheckInStatus(to: viewModel.isCheckedIn ? .checkedOut : .checkedIn)
-                        } label: {
-                            LocationButtonLabel(color: viewModel.isCheckedIn ? Color.brandSecondary : Color.brandPrimary, imageName: viewModel.isCheckedIn ? "person.fill.xmark": "person.fill.checkmark")
+                        // If user have profile then show the check in check out button, if not then the button will be removed
+                        if let _ = CloudKitManager.shared.profileRecordID {
+                            Button {
+                                viewModel.updateCheckInStatus(to: viewModel.isCheckedIn ? .checkedOut : .checkedIn)
+                            } label: {
+                                LocationButtonLabel(
+                                    color: viewModel.isCheckedIn ? .brandSecondary : .brandPrimary,
+                                    imageName: viewModel.isCheckedIn ? "person.fill.xmark": "person.fill.checkmark"
+                                )
+                            }
                         }
                     }
                     .font(.title3)
@@ -52,14 +58,29 @@ struct LocationDetailView: View {
                     .fontWeight(.bold)
                     .font(.title3)
                     .padding()
-                ScrollView {
-                    LazyVGrid(columns: viewModel.columns) {
-                        ForEach(viewModel.checkedInProfiles) { profile in
-                            AvatarFirstNameView(profile: profile)
-                                .onTapGesture {
-                                    viewModel.isShowingProfileModal = true
+                
+                ZStack {
+                    if viewModel.checkedInProfiles.isEmpty {
+                        Text("Nobody's Here 😔")
+                            .bold()
+                            .font(.title2)
+                            .foregroundColor(.secondary)
+                            .padding(.top, 40)
+                    } else {
+                        ScrollView {
+                            LazyVGrid(columns: viewModel.columns) {
+                                ForEach(viewModel.checkedInProfiles) { profile in
+                                    AvatarFirstNameView(profile: profile)
+                                        .onTapGesture {
+                                            viewModel.isShowingProfileModal = true
+                                        }
                                 }
+                            }
                         }
+                    }
+                    
+                    if viewModel.isLoading {
+                        LoadingView()
                     }
                 }
                 Spacer()
@@ -84,6 +105,7 @@ struct LocationDetailView: View {
         })
         .onAppear {
             viewModel.getCheckedInProfiles()
+            viewModel.getCheckedInStatus()
         }
     }
 }

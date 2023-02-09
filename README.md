@@ -33,3 +33,4 @@ This project is taken from Sean Allen courses [DubDubGrub](https://seanallen.tea
 29. Use MockData to populate `ProfileModalView`, connect to `LocationDetailView`. Handle animation (07.02.2023) ✅
 30. Add functionality to update user's check in/check out status on a location (08.02.2023) ✅ 
 31. Show checked in profiles and some UI updates in `LocationDetailView` (09.02.2023) ✅
+32. UI updates for `LocationDetailView` for check in and check out (09.02.2023) ✅

@@ -27,6 +27,7 @@ final class LocationDetailViewModel: ObservableObject {
     
     @Published var checkedInProfiles: [DDGProfile] = []
     
+    @Published var isLoading: Bool = false
     @Published var isShowingProfileModal: Bool = false
     @Published var isCheckedIn: Bool = false
     
@@ -57,6 +58,7 @@ final class LocationDetailViewModel: ObservableObject {
     func updateCheckInStatus(to checkInStatus: CheckInStatus) {
         // Retrieve DDGProfile
         guard let profileRecordID = CloudKitManager.shared.profileRecordID else {
+            alertItem = AlertContext.unableToGetProfile
             return
         }
         CloudKitManager.shared.fetchRecord(with: profileRecordID) { [self] result in
@@ -72,10 +74,10 @@ final class LocationDetailViewModel: ObservableObject {
                 
                 // Save update profile to CloudKit
                 CloudKitManager.shared.save(record: record) { result in
-                    let profile = DDGProfile(record: record)
                     DispatchQueue.main.async { [self] in
                         switch result {
-                        case .success(_):
+                        case .success(let record):
+                            let profile = DDGProfile(record: record)
                             // Update checked in user array
                             switch checkInStatus {
                             case .checkedIn:
@@ -86,26 +88,67 @@ final class LocationDetailViewModel: ObservableObject {
                             isCheckedIn = checkInStatus == .checkedIn
                             print("Checked In/Out Successfully ✅")
                         case .failure(_):
+                            alertItem = AlertContext.updateProfileFailure
                             print("Error Saving Record ‼️")
                         }
                     }
                 }
             case .failure(_):
+                alertItem = AlertContext.unableToCheckInOut
                 print("Error Ferching Record ‼️")
             }
         }
     }
     
     func getCheckedInProfiles() {
+        showLoadingView()
         CloudKitManager.shared.getCheckedInProfiles(for: location.id) { result in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [self] in
                 switch result {
                 case .success(let profiles):
-                    self.checkedInProfiles = profiles
+                    checkedInProfiles = profiles
                 case .failure(_):
+                    alertItem = AlertContext.unableToGetCheckInProfiles
                     print("Error Fetching CheckedIn Profiles ‼️")
+                }
+                
+                hideLoadingView()
+            }
+        }
+    }
+    
+    func getCheckedInStatus() {
+        // Retrieve DDGProfile
+        guard let profileRecordID = CloudKitManager.shared.profileRecordID else {
+            return
+        }
+        
+        CloudKitManager.shared.fetchRecord(with: profileRecordID) { result in
+            DispatchQueue.main.async { [self] in
+                switch result {
+                case .success(let record):
+                    if let reference = record[DDGProfile.cIsCheckedIn] as? CKRecord.Reference {
+                        isCheckedIn = reference.recordID == location.id
+                        
+                        /* if reference.recordID == location.id {
+                            isCheckedIn = true
+                            print("isCheckedIn = true")
+                        } else {
+                            isCheckedIn = false
+                            print("isCheckedIn = false")
+                        } */
+                    } else {
+                        isCheckedIn = false
+                        print("isCheckedIn = false - reference is nil")
+                    }
+                case .failure(_):
+                    alertItem = AlertContext.unableToGetCheckInStatus
+                    print("Failed To Fetch Record ‼️")
                 }
             }
         }
     }
+    
+    private func showLoadingView() { isLoading = true }
+    private func hideLoadingView() { isLoading = false }
 }
