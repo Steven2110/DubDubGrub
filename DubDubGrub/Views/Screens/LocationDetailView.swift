@@ -41,9 +41,9 @@ struct LocationDetailView: View {
                             LocationButtonLabel(color: Color.brandPrimary, imageName: "phone.fill")
                         }
                         Button {
-                            viewModel.updateCheckInStatus(to: .checkedOut)
+                            viewModel.updateCheckInStatus(to: viewModel.isCheckedIn ? .checkedOut : .checkedIn)
                         } label: {
-                            LocationButtonLabel(color: Color.brandPrimary, imageName: "person.fill.checkmark")
+                            LocationButtonLabel(color: viewModel.isCheckedIn ? Color.brandSecondary : Color.brandPrimary, imageName: viewModel.isCheckedIn ? "person.fill.xmark": "person.fill.checkmark")
                         }
                     }
                     .font(.title3)
@@ -54,13 +54,12 @@ struct LocationDetailView: View {
                     .padding()
                 ScrollView {
                     LazyVGrid(columns: viewModel.columns) {
-                        AvatarFirstNameView(firstName: "John")
-                            .onTapGesture {
-                                viewModel.isShowingProfileModal = true
-                            }
-    //                    AvatarFirstNameView(firstName: "John")
-    //                    AvatarFirstNameView(firstName: "John")
-    //                    AvatarFirstNameView(firstName: "John")
+                        ForEach(viewModel.checkedInProfiles) { profile in
+                            AvatarFirstNameView(profile: profile)
+                                .onTapGesture {
+                                    viewModel.isShowingProfileModal = true
+                                }
+                        }
                     }
                 }
                 Spacer()
@@ -83,6 +82,9 @@ struct LocationDetailView: View {
         .alert(item: $viewModel.alertItem, content: { alertItem in
             Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
         })
+        .onAppear {
+            viewModel.getCheckedInProfiles()
+        }
     }
 }
 
@@ -139,12 +141,12 @@ struct LocationButtonLabel: View {
 
 struct AvatarFirstNameView: View {
     
-    var firstName: String
+    var profile: DDGProfile
     
     var body: some View {
         VStack {
-            AvatarView(image: ImagePlaceHolder.avatar, size: 64)
-            Text(firstName)
+            AvatarView(image: profile.createAvatarImage(), size: 64)
+            Text(profile.firstName)
                 .bold()
                 .lineLimit(1)
                 .minimumScaleFactor(0.75)

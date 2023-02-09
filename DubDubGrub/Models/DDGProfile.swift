@@ -8,8 +8,8 @@
 import UIKit
 import CloudKit
 
-struct DDGProfile {
-    let ckRecordID: CKRecord.ID
+struct DDGProfile: Identifiable {
+    let id: CKRecord.ID
     
     let firstName: String
     let lastName: String
@@ -27,7 +27,7 @@ struct DDGProfile {
     static let cIsCheckedIn = "isCheckedIn"
     
     init(record: CKRecord) {
-        ckRecordID = record.recordID
+        id = record.recordID
         firstName = record[DDGProfile.cFirstName] as? String ?? "First Name"
         lastName = record[DDGProfile.cLastName] as? String ?? "Last Name"
         position = record[DDGProfile.cPosition] as? String ?? "N/A"

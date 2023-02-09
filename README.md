@@ -32,3 +32,4 @@ This project is taken from Sean Allen courses [DubDubGrub](https://seanallen.tea
 28. Add profile modal to show user's profile informations, and refactor x dismiss button into reusable view (07.02.2023) ✅
 29. Use MockData to populate `ProfileModalView`, connect to `LocationDetailView`. Handle animation (07.02.2023) ✅
 30. Add functionality to update user's check in/check out status on a location (08.02.2023) ✅ 
+31. Show checked in profiles and some UI updates in `LocationDetailView` (09.02.2023) ✅

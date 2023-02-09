@@ -25,7 +25,10 @@ final class LocationDetailViewModel: ObservableObject {
     
     @Published var alertItem: AlertItem?
     
+    @Published var checkedInProfiles: [DDGProfile] = []
+    
     @Published var isShowingProfileModal: Bool = false
+    @Published var isCheckedIn: Bool = false
     
     init(location: DDGLocation) {
         self.location = location
@@ -69,16 +72,39 @@ final class LocationDetailViewModel: ObservableObject {
                 
                 // Save update profile to CloudKit
                 CloudKitManager.shared.save(record: record) { result in
-                    switch result {
-                    case .success(_):
-                        // Update checked in user array
-                        print("Checked In/Out Successfully ✅")
-                    case .failure(_):
-                        print("Error Saving Record ‼️")
+                    let profile = DDGProfile(record: record)
+                    DispatchQueue.main.async { [self] in
+                        switch result {
+                        case .success(_):
+                            // Update checked in user array
+                            switch checkInStatus {
+                            case .checkedIn:
+                                checkedInProfiles.append(profile)
+                            case .checkedOut:
+                                checkedInProfiles.removeAll(where: { $0.id == profile.id })
+                            }
+                            isCheckedIn = checkInStatus == .checkedIn
+                            print("Checked In/Out Successfully ✅")
+                        case .failure(_):
+                            print("Error Saving Record ‼️")
+                        }
                     }
                 }
             case .failure(_):
                 print("Error Ferching Record ‼️")
+            }
+        }
+    }
+    
+    func getCheckedInProfiles() {
+        CloudKitManager.shared.getCheckedInProfiles(for: location.id) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let profiles):
+                    self.checkedInProfiles = profiles
+                case .failure(_):
+                    print("Error Fetching CheckedIn Profiles ‼️")
+                }
             }
         }
     }
