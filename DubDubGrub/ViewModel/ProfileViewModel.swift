@@ -6,6 +6,7 @@
 //
 
 import CloudKit
+import SwiftUI
 
 enum ProfileContext {
     case create, update
@@ -20,8 +21,11 @@ final class ProfileViewModel: ObservableObject {
     @Published var bioText: String = ""
     @Published var avatar = ImagePlaceHolder.avatar
     
+    @Published private var locationName: String = ""
+    
     @Published var isShowingPhotoPicker: Bool = false
     @Published var isLoading: Bool = false
+    @Published var isCheckedIn: Bool = false
     
     @Published var alertItem: AlertItem?
     
@@ -30,6 +34,81 @@ final class ProfileViewModel: ObservableObject {
     }
     
     var profileContext: ProfileContext = .create
+    
+    func getCheckedInStatus() {
+        // Retrieve DDGProfile
+        guard let profileRecordID = CloudKitManager.shared.profileRecordID else {
+            return
+        }
+        
+        CloudKitManager.shared.fetchRecord(with: profileRecordID) { result in
+            DispatchQueue.main.async { [self] in
+                switch result {
+                case .success(let record):
+                    if record[DDGProfile.cIsCheckedIn] is CKRecord.Reference {
+                        isCheckedIn = true
+                    } else {
+                        isCheckedIn = false
+                        print("isCheckedIn = false - reference is nil")
+                    }
+                case .failure(_):
+                    alertItem = AlertContext.unableToGetCheckInStatus
+                    print("Failed To Fetch Record ‼️")
+                }
+            }
+        }
+    }
+    
+    func checkOut() {
+        // Retrieve DDGProfile
+        guard let profileRecordID = CloudKitManager.shared.profileRecordID else {
+            alertItem = AlertContext.unableToGetProfile
+            return
+        }
+        CloudKitManager.shared.fetchRecord(with: profileRecordID) { [self] result in
+            switch result {
+            case .success(let record):
+                // Fetch location name where user checked in
+                let locationReference: CKRecord.Reference = record[DDGProfile.cIsCheckedIn] as! CKRecord.Reference
+                getCheckedInLocationName(fromRecordID: locationReference.recordID)
+                // Make the reference nil so that user are not checked in on any place
+                record[DDGProfile.cIsCheckedIn] = nil
+                // Save update profile to CloudKit
+                CloudKitManager.shared.save(record: record) { result in
+                    DispatchQueue.main.async { [self] in
+                        switch result {
+                        case .success(_):
+                            isCheckedIn = false
+                            alertItem = AlertItem(
+                                title: Text("Check Out Successfully"),
+                                message: Text("You have been check out from ~\(locationName)~.\nSee you again later here 👋"),
+                                dismissButton: .default(Text("Ok")))
+                            print("Checked Out Successfully ✅")
+                        case .failure(_):
+                            alertItem = AlertContext.unableToCheckInOut
+                            print("Error Saving Record ‼️")
+                        }
+                    }
+                }
+            case .failure(_):
+                DispatchQueue.main.async {
+                    self.alertItem = AlertContext.unableToCheckInOut
+                    print("Error Ferching Record ‼️")
+                }
+            }
+        }
+    }
+    
+    func getCheckedInLocationName(fromRecordID locationID: CKRecord.ID) {
+        CloudKitManager.shared.fetchRecord(with: locationID) { result in
+            switch result {
+            case .success(let record):
+                self.locationName = record[DDGLocation.cName] as! String
+            case .failure(_):
+                break
+            }
+        }
+    }
     
     func checkProfileValidity() -> Bool {
         guard !firstName.isEmpty,

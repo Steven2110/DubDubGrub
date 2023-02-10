@@ -34,3 +34,4 @@ This project is taken from Sean Allen courses [DubDubGrub](https://seanallen.tea
 30. Add functionality to update user's check in/check out status on a location (08.02.2023) ✅ 
 31. Show checked in profiles and some UI updates in `LocationDetailView` (09.02.2023) ✅
 32. UI updates for `LocationDetailView` for check in and check out (09.02.2023) ✅
+33. Add Check Out button on `ProfileView` and add custom alert when user checked out (10.02.2023) ✅
